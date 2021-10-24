@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <title>WeatherSite</title>
+</head>
+<body>
+    <div class="split left">
+        <div class="centered">
+            <h1>Weather Site</h1>
+            <form method="post" action="{{url_for('views.home')}}">
+                <label for="fname"><strong>City</strong></label>
+                <input type="text" id="fname" name="city" placeholder="Enter City Name">
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+      </div>
+      
+      <div class="split right">
+        <div class="centered">
+            <h2><span>Country Code :</span> {{data.country_code}}</h2>
+            <h2><span>City :</span> {{data.city}}</h2>
+            <!-- <h2><span>DateTime :</span> {{data.time}}</h2> -->
+            <h2><span>Temperature in Celsius :</span> {{data.temp}}</h2>
+            <h2><span>Pressure :</span> {{data.pressure}} </h2>
+            <h2><span>Humidity : </span> {{data.humidity}}</h2>
+            <h2><span>Forecast : </span> {{data.main}} <img
+                src="http://openweathermap.org/img/w/{{data.icon}}.png" alt="" style="width:40px"></h2>
+            <h2><span>Description : </span> {{data.description}}</h2>
+        </div>
+      </div>
+</body>
+</html>
